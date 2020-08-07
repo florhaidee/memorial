@@ -1,0 +1,218 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    background-color: rgb(177, 189, 166);
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: color .1s;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    background-color: #225ca3;
+    padding: .5rem;
+    color: white;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #3486eb;
+}
+
+.post-list {
+    margin: 0;
+    padding: 0;
+}
+
+textarea,
+input {
+    padding: .5%;
+    border-radius: 5px;
+    border: 1px solid blue;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+    border: 1px solid #3486eb;
+}
+
+textarea {
+    min-width: 40%;
+    min-height: 100px;
+}
+
+form>div {
+    margin-bottom: 2%;
+}
+
+form label {
+    display: block;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: black;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.page-header {
+    width: 15rem;;
+    font-size: 2rem;
+    background-color: rgb(177, 189, 166);
+    box-shadow: 5px 5px rgb(130, 139, 122);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1%;
+}
+
+header h1 {
+    font-size: 1em;
+}
+
+main {
+    flex: 1;
+    padding: 2% 4%;
+}
+
+.btn-no-style {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(177, 189, 166);
+    font-size: 100%;
+    font-weight: bold;
+    transition: color .1s;
+    margin-left: 16px;
+}
+
+.btn-no-style:hover {
+    background: none;
+    color: #3486eb;
+}
+
+.delete-post-btn {
+    background-color: #d41414;
+}
+
+.delete-post-btn:hover {
+    background-color: #ff643d;
+}
+
+.post {
+    border: .1rem solid black;
+    margin-bottom: 2%;
+    line-height: 150%;
+}
+
+.title {
+    background-color: black;
+    /* justify-content: space-between; */
+    color: rgb(177, 189, 166);
+    padding: .5rem;
+    font-size: 100%;
+    
+}
+
+.title span {
+float: right;
+}
+
+.edit-link {
+    display: block;
+    margin: -1.5% 0 2% 0;
+}
+
+.comment-form {
+    margin-bottom: 5%;
+}
+
+.comment-form textarea {
+    width: 100%;
+}
+
+.comment-form button {
+    width: 100%;
+    background-color: grey;
+    font-size: x-large;
+}
+
+.comment {
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+.comment:nth-child(odd) {
+    background-color: #fff5eb;
+}
+
+.meta {
+    padding: .5rem;
+}
+
+.comment .meta {
+    font-size: 90%;
+    margin-bottom: .5%;
+    opacity: .6;
+    padding: .5rem;
+}
+
+.post-section {
+    border: .2rem solid black;
+}
+
+.post-section h2 {
+    background: black;
+    margin: 0;
+    padding: .5rem;
+    color: rgb(177, 189, 166);
+}
+
+.new-post-form {
+    padding: .5rem;
+}
+
+.new-post-form input {
+    width: 100%;
+}
+
+.new-post-form button {
+    width: 100%;
+    background-color: grey;
+}
+
+.edit-post-form {
+    margin-bottom: 5%;
+}
