@@ -10,15 +10,20 @@
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body, html {
+title {
+    color: transparent;
+}
+
+body,
+html {
     background-image: url('../images/twead.jpg');
     background-size: 15%;
     background-position: fixed;
     background-attachment: fixed;
-    height: 100%;
-    overflow: hidden;
     padding: 0;
     margin: 0;
     font-family: 'Cormorant Upright', serif;
@@ -46,8 +51,21 @@ button:hover {
     background-color: #3486eb;
 }
 
+/* #logout {
+    float: right;
+    margin-right: 15rem;
+}
+
+#home {
+    margin-left: 16rem;
+}
+
+#dashboard {
+    margin-left: 4rem;
+} */
+
 .post-list {
-    margin: 0;
+    margin: .5rem;
     padding: 0;
 }
 
@@ -86,36 +104,35 @@ form label {
 }
 
 header {
-    background-color: clear;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: .5rem;
     border: none;
 }
 
-header, nav {
+nav {
     width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    margin-bottom: .5rem;
 }
 
 .page-header {
-    width: 100%;;
+    width: 100%;
     font-size: 6rem;
-    background-color: clear;
     border: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: block;
     margin: 0;
     padding: .5rem 1%;
     color: var(--dark);
     text-shadow: 0 0 2px var(--white);
-
+    text-align: center;
 }
 
 main {
-    flex: 1;
+    display: flex;
     padding: 2% 4%;
     border: 1px solid var(--white);
     margin: 2rem;
@@ -132,7 +149,6 @@ main {
     font-size: 3rem;
     font-weight: bold;
     transition: color .1s;
-    margin-left: 16px;
     color: var(--dark);
     text-shadow: 0 0 2px var(--white);
 
@@ -150,21 +166,37 @@ main {
     background-color: #ff643d;
 }
 
-.post {
-    border: .1rem solid black;
+.card {
+    border: .1rem solid var(--mid);
     margin-bottom: 2%;
-    line-height: 150%;
+    box-shadow: 0 0 10px var(--light);
+    border-radius: 5px;
+}
+
+.card img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .title {
-    background-color: var(--dark);
+    background-color: var(--light);
+    margin: 0;
     padding: .5rem;
     font-size: 100%;
-    
+    color: var(--white);
+    text-align: center;
+}
+
+.card-text {
+    background-color: var(--light);
+    margin: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+text-align: center;
 }
 
 .title span {
-float: right;
+    float: right;
 }
 
 .edit-link {
@@ -220,9 +252,9 @@ float: right;
     padding: .5rem;
 }
 
-.new-post-form input {
+/* .new-post-form input {
     width: 100%;
-}
+} */
 
 .new-post-form button {
     width: 100%;

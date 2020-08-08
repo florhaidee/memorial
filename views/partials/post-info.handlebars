@@ -1,12 +1,9 @@
-<article class="post">
-    <div class="title">
-        <a href='/post/{{id}}'>{{title}}</a>
-        <span>Posted by {{user.username}} on {{format_date created_at}}</span>
-        <div>
-            <p>{{ content }}</p>
+<a href='/post/{{id}}'>
+    <div class='card' class='embed-responsive embed-responsive-4by3'>
+        <img src='https://64.media.tumblr.com/4298eb1d93a6ea97bac8c2be547696a6/tumblr_oa4hjoynQN1tle5keo1_400.png' class='card-img-top embed-responsive-item'>
+        <div class='card-body'>
+            <h4 class="title">{{title}}</h4>
+            <p class='card-text'>{{ content }}</p>
         </div>
     </div>
-    <div class="meta">
-        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-    </div>
-</article>
+</a>
