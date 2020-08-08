@@ -1,11 +1,24 @@
+:root {
+    --green: #687864;
+    --dark: #31708E;
+    --mid: #5085A5;
+    --light: #8FC1E3;
+    --white: #F7F9FB;
+}
+
 * {
     box-sizing: border-box;
 }
 
-body,
-html {
-    background-color: rgb(177, 189, 166);
+body, html {
+    background-image: url('../images/twead.jpg');
+    /* background-repeat: no-repeat; */
+    background-size: 50%;
+    background-position: fixed;
+    background-attachment: fixed;
+    /* background-color: rgb(177, 189, 166); */
     height: 100%;
+    overflow: hidden;
     padding: 0;
     margin: 0;
     font-family: sans-serif;
@@ -76,8 +89,7 @@ form label {
 }
 
 header {
-    background-color: black;
-    border-bottom: 1px solid #ccc;
+    background-color: clear;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,7 +150,7 @@ main {
 }
 
 .title {
-    background-color: black;
+    background-color: var(--dark);
     /* justify-content: space-between; */
     color: rgb(177, 189, 166);
     padding: .5rem;
