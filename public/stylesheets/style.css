@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300&display=swap');
+
 :root {
     --green: #687864;
     --dark: #31708E;
@@ -12,22 +14,18 @@
 
 body, html {
     background-image: url('../images/twead.jpg');
-    /* background-repeat: no-repeat; */
-    background-size: 50%;
+    background-size: 15%;
     background-position: fixed;
     background-attachment: fixed;
-    /* background-color: rgb(177, 189, 166); */
     height: 100%;
     overflow: hidden;
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
-    color: #333;
+    font-family: 'Cormorant Upright', serif;
 }
 
 a {
     text-decoration: none;
-    color: white;
     transition: color .1s;
     cursor: pointer;
 }
@@ -39,7 +37,6 @@ ul {
 button {
     background-color: #225ca3;
     padding: .5rem;
-    color: white;
     transition: background-color .1s;
     cursor: pointer;
     border-radius: 5px;
@@ -90,49 +87,59 @@ form label {
 
 header {
     background-color: clear;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
+    border: none;
+}
+
+header, nav {
+    width: 100%;
 }
 
 .page-header {
-    width: 15rem;;
-    font-size: 2rem;
-    background-color: rgb(177, 189, 166);
-    box-shadow: 5px 5px rgb(130, 139, 122);
-    border-radius: 5px;
+    width: 100%;;
+    font-size: 6rem;
+    background-color: clear;
+    border: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    margin: 0;
     padding: .5rem 1%;
-}
+    color: var(--dark);
+    text-shadow: 0 0 2px var(--white);
 
-header h1 {
-    font-size: 1em;
 }
 
 main {
     flex: 1;
     padding: 2% 4%;
+    border: 1px solid var(--white);
+    margin: 2rem;
+    border-radius: 5px;
+
 }
 
-.btn-no-style {
+.btn {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: rgb(177, 189, 166);
-    font-size: 100%;
+    font-size: 3rem;
     font-weight: bold;
     transition: color .1s;
     margin-left: 16px;
+    color: var(--dark);
+    text-shadow: 0 0 2px var(--white);
+
 }
 
-.btn-no-style:hover {
+.btn:hover {
     background: none;
-    color: #3486eb;
 }
 
 .delete-post-btn {
@@ -151,8 +158,6 @@ main {
 
 .title {
     background-color: var(--dark);
-    /* justify-content: space-between; */
-    color: rgb(177, 189, 166);
     padding: .5rem;
     font-size: 100%;
     
@@ -209,7 +214,6 @@ float: right;
     background: black;
     margin: 0;
     padding: .5rem;
-    color: rgb(177, 189, 166);
 }
 
 .new-post-form {
