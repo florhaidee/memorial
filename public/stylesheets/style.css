@@ -130,7 +130,25 @@ main {
     border: 1px solid var(--white);
     margin: 2rem;
     border-radius: 5px;
+}
 
+.intro {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--dark);
+    text-shadow: 0 0 2px var(--light), 0 0 4px var(--white);
+}
+
+footer {
+    width: 100%;
+    font-size: 4rem;
+    border: none;
+    display: block;
+    margin: 0;
+    padding: .5rem 1%;
+    color: var(--dark);
+    text-shadow: 0 0 2px var(--white);
+    text-align: center;
 }
 
 .btn {
