@@ -1,7 +1,7 @@
-<div class="post-list row">
-    {{#each posts as |post|}}
-    <div class='col'>
-        {{> post-info post }}
-    </div>
-    {{/each}}
-</dive>
+{{!-- <div class="post-list"> --}}
+{{#each posts as |post|}}
+<div class='home-post'>
+    {{> post-info post }}
+</div>
+{{/each}}
+{{!-- </div> --}}
