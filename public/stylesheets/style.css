@@ -20,8 +20,8 @@ title {
 
 body,
 html {
-    background-image: url('../images/twead.jpg');
-    background-size: 15%;
+    background-image: url('../images/pink-background.jpg');
+    background-size: 66%;
     background-position: fixed;
     background-attachment: fixed;
     padding: 0;
@@ -34,6 +34,7 @@ a {
     text-decoration: none;
     transition: color .1s;
     cursor: pointer;
+    font-size: 2rem;
 }
 
 ul,
@@ -53,14 +54,13 @@ button:hover {
     background-color: var(--light);
 }
 
-/* .post-item {
-    width: 25%;
-    margin: 0;
-} */
-
 .post-list {
     margin: .5rem;
     padding: 0;
+}
+
+textarea {
+    width: 100%;
 }
 
 textarea,
@@ -87,6 +87,8 @@ form>div {
 
 form label {
     display: block;
+    color: var(--dark);
+    text-shadow: 0 0 .5px black;
 }
 
 .wrapper {
@@ -115,7 +117,7 @@ nav {
 
 .page-header {
     width: 100%;
-    font-size: 6rem;
+    font-size: 10rem;
     border: none;
     display: block;
     margin: 0;
@@ -134,14 +136,14 @@ main {
 
 .intro {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--dark);
-    text-shadow: 0 0 2px var(--light), 0 0 4px var(--white);
+    text-shadow: 0 0 1px black, 0 0 2px var(--light), 0 0 4px var(--white);
 }
 
 footer {
     width: 100%;
-    font-size: 4rem;
+    font-size: 5rem;
     border: none;
     display: block;
     margin: 0;
@@ -157,7 +159,7 @@ footer {
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: bold;
     transition: color .1s;
     color: var(--dark);
@@ -281,7 +283,7 @@ footer {
 }
 
 label {
-    font-size: x-large;
+    font-size: 4rem;
     text-shadow: 0 0 1px var(--white);
 }
 
