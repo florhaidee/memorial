@@ -3,11 +3,23 @@
 
     <form class="new-post-form">
         <div>
-            <label for="post-title">Title</label>
+            <label for="post-title">Name</label>
             <input type="text" id="post-title" name="post-title" />
         </div>
         <div>
-            <label for="post-body">Content</label>
+            <label for="birth-date">Birth Date</label>
+            <input type="date" id="birth-date" name="birth-date" />
+        </div>
+        <div>
+            <label for="passing-date">Date of Passing</label>
+            <input type="date" id="passing-date" name="passing-date" />
+        </div>
+        <div>
+            <label for="image">Please Upload a Photo</label>
+            <input class='file-input' type="file" name="avatar" />
+        </div>
+        <div>
+            <label for="post-body">What would you like to say about them?</label>
             <textarea id="post-body" name="post-body"></textarea>
         </div>
         <button type="submit" class="btn">Create</button>
@@ -15,11 +27,11 @@
 </section>
 
 {{#if posts.length}}
-<section>
-    <h2>Your Posts</h2>
+<section class='your-posts'>
+    <h2 id='section-head'>Your Posts</h2>
     <ol>
         {{#each posts as |post|}}
-        <li>
+        <li class='existing-post'>
             {{> post-info post}}
             <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
         </li>

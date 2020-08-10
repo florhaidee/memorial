@@ -5,28 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>In Memoriam</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <header>
             <nav>
-                <a href="/">Home</a>
+                <a id='home' class='btn' href="/">Home</a>
                 {{#if loggedIn}}
-                <a class='btn-no-style' href="/dashboard">Dashboard</a>
-                <button id="logout" class="btn-no-style">Logout</button>
+                <a id='dashboard' class='btn' href="/dashboard">Dashboard</a>
+                <button id="logout" class="btn">Logout</button>
                 {{else}}
-                <a class ='btn-no-style' href="/login">Login</a>
+                <a class='btn col' href="/login">Login</a>
                 {{/if}}
-                <h1 class='page-header'>
-                    In Memoriam
-                </h1>
             </nav>
-        </header>
+            <h1 class='page-header'>
+                In Memoriam
+            </h1>
+            <p class='intro'>
+                This is a space to remember those that have passed on. A place to celebrate who they were and why we loved them.<br>
+                Please feel free to post about those you love, and to view the posts of others. <br>
+                Be Open. Be Respectful. Be Grateful. Have Fun.<br>
+                "Unable are the loved to die, for love is immortality." -Emily Dickinson
+            </p>
         <main>
             {{{ body }}}
         </main>
+        <footer>
+            Thanks for Remembering
+        </footer>
     </div>
 
     {{#if loggedIn}}
