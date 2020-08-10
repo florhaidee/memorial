@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     Post.findAll({
       attributes: [
         'id',
-        'post_url',
+        'content',
         'title',
         'created_at',
       ],
@@ -52,6 +52,11 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+//signup route
+router.get('/signup', (req, res) => {
+  res.render('signup');
+})
+
 //single-post route
 router.get('/post/:id', (req, res) => {
   Post.findOne({
@@ -60,7 +65,7 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'content',
       'title',
       'created_at',
     ],
