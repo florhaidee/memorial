@@ -83,9 +83,14 @@ router.get('/:id', (req, res) => {
 
 //create a post
 router.post('/', withAuth, (req, res) => {
+  console.log("birthday",req.body.birthDate);
+  console.log("passing date",req.body.passingDate);
     Post.create({
       title: req.body.title,
-      content: req.body.content,
+      birthDate: req.body.birthDate,
+      passingDate: req.body.passingDate,
+      avatar: req.body.avatar,
+      content: req.body.content,  
       user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
