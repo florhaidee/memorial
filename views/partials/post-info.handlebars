@@ -1,8 +1,8 @@
     <div class='card' onclick='location.href="/post/{{id}}"'>
-        <img src='https://64.media.tumblr.com/4298eb1d93a6ea97bac8c2be547696a6/tumblr_oa4hjoynQN1tle5keo1_400.png'
+        <img src='{{ avatar }}'
             class='card-img-top'>
         <div class='card-body'>
             <h4 class="title">{{title}}</h4>
-            <p class='card-text'>{{ dates }}</p>
+            <p class='card-text'>{{ birthDate }} - {{ passingDate }}</p>
         </div>
     </div>

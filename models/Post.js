@@ -17,11 +17,11 @@ Post.init(
     },
     birthDate: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      // allowNull: false
     },
     passingDate: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      // allowNull: false
     },
     avatar: {
       type: DataTypes.STRING,

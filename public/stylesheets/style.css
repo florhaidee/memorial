@@ -132,6 +132,9 @@ main {
     border: 1px solid var(--white);
     margin: 2rem;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .intro {
@@ -180,11 +183,12 @@ footer {
 }
 
 .home-post {
-    width: 25%;
+    width: 23%;
     display: inline-block;
 }
 
 .card {
+    width: 100%;
     display: inline-block;
     border: .2rem solid var(--mid);
     margin-left: 0;
@@ -322,6 +326,10 @@ label {
 }
 
 @media screen and (max-width: 575px) {
+    .page-header {
+        font-size: 8rem;
+    }
+    
     .home-post {
         width: 100%;
         margin-bottom: 2%;
