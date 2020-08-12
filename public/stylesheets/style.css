@@ -132,6 +132,9 @@ main {
     border: 1px solid var(--white);
     margin: 2rem;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .intro {
@@ -171,20 +174,17 @@ footer {
     background: none;
 }
 
-.delete-post-btn {
-    background-color: var(--dark);
-}
-
-.delete-post-btn:hover {
-    background-color: var(--light);
+.save-btn {
+    margin-right: 4%;
 }
 
 .home-post {
-    width: 25%;
+    width: 23%;
     display: inline-block;
 }
 
 .card {
+    width: 100%;
     display: inline-block;
     border: .2rem solid var(--mid);
     margin-left: 0;
@@ -272,7 +272,7 @@ footer {
     font-size: 4rem;
     background: var(--mid);
     margin: 0;
-    color: var(--green);
+    color: var(--light);
     -webkit-text-stroke: .5px var(--white);
     border-bottom: 2px solid var(--white);
 }
@@ -322,6 +322,10 @@ label {
 }
 
 @media screen and (max-width: 575px) {
+    .page-header {
+        font-size: 8rem;
+    }
+    
     .home-post {
         width: 100%;
         margin-bottom: 2%;
