@@ -48,7 +48,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
       // use the ID from the session
-      user_id: req.session.user_id
+      id: req.params.id
     },
     attributes: [
       'id',
