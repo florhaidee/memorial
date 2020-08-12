@@ -5,16 +5,21 @@ async function editFormHandler(event) {
         window.location.toString().split('/').length - 1
     ];
 
-    const title = document.querySelector('input[name="post-title"]').value.trim();
+    const title = document.querySelector('input[name="post-title"]').value;
+    const birthDate = document.querySelector('input[name="birth-date"]').value;
+    const passingDate = document.querySelector('input[name="passing-date"]').value;
+    const avatar = document.querySelector('input[name="avatar"]').value;
     const content = document.querySelector('textarea[name="post-body"]').value;
-
+    
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            avatar,
             title,
             birthDate,
-            passingDate        }),
+            passingDate,
+            avatar,
+            content        
+        }),
         headers: {
             'Content-Type': 'application/json'
         }
