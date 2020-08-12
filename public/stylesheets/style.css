@@ -127,6 +127,18 @@ nav {
     text-align: center;
 }
 
+.comment-header {
+    width: 100%;
+    font-size: 6rem;
+    border: none;
+    display: block;
+    margin: 0;
+    padding: .5rem 1%;
+    color: var(--dark);
+    text-shadow: 0 0 2px var(--white);
+    text-align: center;
+}
+
 main {
     padding: 2% 4%;
     border: 1px solid var(--white);
@@ -167,7 +179,6 @@ footer {
     transition: color .1s;
     color: var(--dark);
     text-shadow: 0 0 2px var(--white);
-
 }
 
 .btn:hover {
@@ -228,6 +239,7 @@ footer {
 }
 
 .comment-form {
+    width: 100%;
     margin-bottom: 5%;
 }
 
@@ -240,24 +252,27 @@ footer {
     font-size: x-large;
 }
 
+.comments {
+    width: 100%;
+}
+
 .comment {
+    width: 100%;
+    font-size: 2rem;
     padding: 1%;
     margin-bottom: 1%;
+    background-color: var(--light);
+    border: 1px solid var(--dark);
+    white-space: pre-line;
+    box-shadow: 0 0 4px var(--white);
+
 }
 
-.comment:nth-child(odd) {
-    background-color: #fff5eb;
-}
+.commenter {
+    white-space: normal;
+    color: var(--white);
+    font-size: 2.5rem;
 
-.meta {
-    padding: .5rem;
-}
-
-.comment .meta {
-    font-size: 90%;
-    margin-bottom: .5%;
-    opacity: .6;
-    padding: .5rem;
 }
 
 .post-section {
@@ -321,27 +336,72 @@ label {
     overflow: hidden;
 }
 
+.single-photo-box {
+    width: 25%;
+    height: 100%;
+    border: 2px solid var(--dark);
+    display: inline-block;
+}
+
+.single-photo {
+    width: 100%;
+}
+
+.single-post-box {
+    width: 75%;
+}
+
+.single-title {
+    width: 100%;
+    text-align: center;
+    font-size: 6rem;
+    margin: 0;
+    color: var(--light);
+    -webkit-text-stroke: .5px var(--white);
+}
+
+.single-dates {
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 0 0 2px var(--light);
+    font-weight: bold;
+}
+
+.single-content {
+    width: 100%;
+    font-size: 2.5rem;
+    color: var(--white);
+    margin: 2%;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
 @media screen and (max-width: 575px) {
     .page-header {
         font-size: 8rem;
     }
-    
+
     .home-post {
         width: 100%;
         margin-bottom: 2%;
-    }    
-    
+    }
+
     .post-section {
         float: left;
         width: 100%;
         border: .2rem solid var(--dark);
         align-items: center;
     }
-    
+
     .your-posts {
         width: 100%;
         display: inline-block;
         padding-left: 1%;
     }
+
+    .single-photo-box, .single-post-box {
+        width: 100%;
     
+
 }

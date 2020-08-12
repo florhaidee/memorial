@@ -1,13 +1,24 @@
-{{> post-info post}}
+{{!-- {{> post-info post}} --}}
+<div class='single-photo-box'>
+    <img class='single-photo'
+        src='https://64.media.tumblr.com/4298eb1d93a6ea97bac8c2be547696a6/tumblr_oa4hjoynQN1tle5keo1_400.png' />
+</div>
+<div class='single-post-box'>
+    <div class='single-title'> {{ post.title }} </div>
+    <div class='single-dates'> {{ format_date post.birthDate }} - {{ format_date post.passingDate }}</div>
+    <div class='single-content'> {{ post.content }}</div>
+</div>
+
 
 {{#if loggedIn}}
 <form class="comment-form">
+    <div class='comment-header'>Other Memories</div>
     <div>
         <textarea name="comment-body" id="Comment-Body"></textarea>
     </div>
 
     <div>
-        <button type="submit" id="submitPost-btn">Submit</button>
+        <button type="submit" class='btn' id="submitPost-btn">Submit</button>
     </div>
 </form>
 {{/if}}
