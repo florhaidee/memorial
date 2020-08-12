@@ -174,12 +174,8 @@ footer {
     background: none;
 }
 
-.delete-post-btn {
-    background-color: var(--dark);
-}
-
-.delete-post-btn:hover {
-    background-color: var(--light);
+.save-btn {
+    margin-right: 4%;
 }
 
 .home-post {
@@ -276,7 +272,7 @@ footer {
     font-size: 4rem;
     background: var(--mid);
     margin: 0;
-    color: var(--green);
+    color: var(--light);
     -webkit-text-stroke: .5px var(--white);
     border-bottom: 2px solid var(--white);
 }
