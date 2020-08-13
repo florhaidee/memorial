@@ -149,6 +149,11 @@ router.post('/', withAuth, (req, res) => {
     if (err){
       res.status(500).json(err);
     } else {
+      const obj = JSON.parse(req.body);
+      console.log(obj)
+      console.log('---------------------------------------')
+      console.log(req.body)
+      console.log('---------------------------------------')
       Post.create({
         title: req.body.post-title,
         birthDate: req.body.birth-date,
@@ -196,8 +201,8 @@ router.post('/', withAuth, (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-      })
-    }
+      }
+    )}
   })
 })
 module.exports = router;
