@@ -7,7 +7,8 @@ async function newFormHandler(event) {
     const passingDate = document.querySelector('input[name="passing-date"]').value;
     const content = document.querySelector('textarea[name="post-body"]').value;
 
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/posts`, 
+        {
         method: 'POST',
         body: JSON.stringify({
             avatar,
@@ -16,11 +17,12 @@ async function newFormHandler(event) {
             passingDate,
             content
         }),
+        file: event.target.file,
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
     });
-
+    console.log()
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
