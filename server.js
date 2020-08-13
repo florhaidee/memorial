@@ -3,20 +3,6 @@ const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 
-const multer = require('multer');
-
-//set multer storage
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads');
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now());
-  }
-});
-
-var upload = multer({ storage: storage });
-//end multer storage
 
 //setup handlebars as template engine
 const helpers = require('./utils/helpers');
@@ -52,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // turn on routes
 app.use(routes);
+
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
