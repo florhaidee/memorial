@@ -3,24 +3,24 @@
     <h2 id='section-head'>
         Edit Post
     </h2>
-    <form class="edit-post-form">
+    <form action="/dashboard/edit/{{post.id}}" class="edit-post-form" class="new-post-form" method="POST" enctype="multipart/form-data">
         <div>
-            <input name="post-title" type="text" value="{{post.title}}" />
+            <input name="title" type="text" value="{{post.title}}" />
         </div>
         <div>
-            <label for="birth-date">Birth Date</label>
-            <input type="date" id="birth-date" name="birth-date" value="{{post.birthDate}}" />
+            <label for="birthDate">Birth Date</label>
+            <input type="date" id="birthDate" name="birthDate" value="{{post.birthDate}}" />
         </div>
         <div>
-            <label for="passing-date">Date of Passing</label>
-            <input type="date" id="passing-date" name="passing-date" value="{{post.passingDate}}" />
+            <label for="passingDate">Date of Passing</label>
+            <input type="date" id="passingDate" name="passingDate" value="{{post.passingDate}}" />
         </div>
         <div>
             <label for="image">Please Upload a Photo</label>
             <input class='file-input' type="file" name="avatar" value="{{post.avatar}}" />
         </div>
         <div>
-            <textarea name="post-body" type="text" >{{post.content}}</textarea>
+            <textarea name="body" type="text" >{{post.content}}</textarea>
         </div>
         <div>
             <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
@@ -42,6 +42,6 @@
 
 {{> comments post.comments}}
 
-<script src="/javascript/edit-post.js"></script>
+{{!-- <script src="/javascript/edit-post.js"></script> --}}
 <script src="/javascript/delete-post.js"></script>
 <script src="/javascript/comment.js"></script>
