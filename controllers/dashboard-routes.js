@@ -4,6 +4,8 @@ const withAuth = require('../utils/auth');
 const upload = require('../utils/upload');
 const { Post, User, Comment } = require('../models');
 const { route } = require('./api');
+const qs = require('qs');
+const assert = require('assert');
 
 router.get('/', withAuth, (req, res) => {
   Post.findAll({
@@ -149,17 +151,17 @@ router.post('/', withAuth, (req, res) => {
     if (err){
       res.status(500).json(err);
     } else {
-      const obj = JSON.parse(req.body);
+      const obj = JSON.parse(JSON.stringify(req.body));
       console.log(obj)
       console.log('---------------------------------------')
-      console.log(req.body)
+      console.log(req.body.title)
       console.log('---------------------------------------')
       Post.create({
-        title: req.body.post-title,
-        birthDate: req.body.birth-date,
-        passingDate: req.body.passing-date,
+        title: req.body.title,
+        birthDate: req.body.birthDate,
+        passingDate: req.body.pasingDate,
         avatar: `images/${req.file.filename}`,
-        content: req.body.post-body,  
+        content: req.body.body,  
         user_id: req.session.user_id
       })
       .then(dbPostData => {
