@@ -4,8 +4,6 @@ const withAuth = require('../utils/auth');
 const upload = require('../utils/upload');
 const { Post, User, Comment } = require('../models');
 const { route } = require('./api');
-const qs = require('qs');
-const assert = require('assert');
 
 router.get('/', withAuth, (req, res) => {
   Post.findAll({
@@ -102,7 +100,7 @@ router.post('/', withAuth, (req, res) => {
         content: req.body.body,  
         user_id: req.session.user_id
       })
-      .then(dbPostData => {
+      .then(response => {
         Post.findAll({
           where: {
             // use the ID from the session
@@ -133,16 +131,17 @@ router.post('/', withAuth, (req, res) => {
           ]
         })
         .then(dbPostData => {
-            // serialize data before passing to template
-            const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('dashboard', { posts, loggedIn: true });
+          // serialize data before passing to template
+          const posts = dbPostData.map(post => post.get({ plain: true }));
+          res.render('dashboard', { posts, loggedIn: true });
         })
         .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
+          console.log(err);
+          res.status(500).json(err);
         });
       }
     )}
   })
 })
+
 module.exports = router;
