@@ -1,6 +1,8 @@
 module.exports = {
     format_date: date => {
-      return `${new Date(date).getMonth()}/${new Date(date).getDate()}/${new Date(
+      const month = new Date(date).getMonth()
+      const day = new Date(date).getDate()
+      return `${month + 1}/${day + 1}/${new Date(
         date).getFullYear()}`;
     },
     format_plural: (word, amount) => {
