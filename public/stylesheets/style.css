@@ -268,16 +268,24 @@ footer {
     margin-bottom: 1%;
     background-color: var(--light);
     border: 1px solid var(--dark);
-    white-space: pre-line;
+    /* white-space: pre-line; */
     box-shadow: 0 0 4px var(--white);
-
+    display: block;
 }
 
 .commenter {
     white-space: normal;
     color: var(--white);
     font-size: 2.5rem;
+}
 
+#editForm {
+display: none;
+}
+
+.comment-edit-link {
+    float: right;
+    display: inline-flex;
 }
 
 .post-section {
