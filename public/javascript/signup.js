@@ -22,6 +22,8 @@ async function signupFormHandler(event) {
         } else {
             alert('Email already in use!');
         }
+    } else {
+        alert('All fields are required for submission.');
     }
 }
 
