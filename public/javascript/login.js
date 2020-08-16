@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            alert('The Email or password you have provided does not exist. Please try again or visit the Sign-Up page');
         }
     }
 }
