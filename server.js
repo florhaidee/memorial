@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
-
+require('dotenv').config();
 
 //setup handlebars as template engine
 const helpers = require('./utils/helpers');
@@ -22,6 +22,8 @@ const sess = {
   })
 };
 
+
+//setup for express
 const app = express();
 const PORT = process.env.PORT || 3001;
 
