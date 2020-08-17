@@ -92,11 +92,12 @@ router.post('/', withAuth, (req, res) => {
     if (err){
       res.status(500).json(err);
     } else {
+      console.log("------------------------------------------------------------------------>",req.file);
       Post.create({
         title: req.body.title,
         birthDate: req.body.birthDate,
         passingDate: req.body.pasingDate,
-        avatar: `images/${req.file.filename}`,
+        avatar: `https://inmemoriamphotos.s3.us-west-2.amazonaws.com/${req.file.key}`,
         content: req.body.body,  
         user_id: req.session.user_id
       })
@@ -149,59 +150,57 @@ router.put('/edit/:id', withAuth, (req, res) => {
   upload(req, res, (err) => {
     if (err){
       res.status(500).json(err);
-    } else {
-      if(req.file!== 'undefined'){
-        Post.update({
-          title: req.body.title,
-          birthDate: req.body.birthDate,
-          passingDate: req.body.pasingDate,
-          avatar: `images/${req.file.filename}`,
-          content: req.body.body,  
-          user_id: req.session.user_id
-        })
-        .then(response => {
-          Post.findAll({
-            where: {
-              // use the ID from the session
-              user_id: req.session.user_id
-            },
-            attributes: [
-              'id',
-              'title',
-              'birthDate',
-              'passingDate',
-              'content',
-              'avatar',
-              'created_at',
-            ],
-            include: [
-              {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                  model: User,
-                  attributes: ['username']
-                }
-              },
-              {
+    } 
+    console.log("------------------------------------------------------------------------>",req.file);
+      Post.update({
+        title: req.body.title,
+        birthDate: req.body.birthDate,
+        passingDate: req.body.pasingDate,
+        avatar: `https://inmemoriamphotos.s3.us-west-2.amazonaws.com/${req.file.key}`,
+        content: req.body.body,  
+        user_id: req.session.user_id
+      })
+      .then(response => {
+        Post.findAll({
+          where: {
+            // use the ID from the session
+            user_id: req.session.user_id
+          },
+          attributes: [
+            'id',
+            'title',
+            'birthDate',
+            'passingDate',
+            'content',
+            'avatar',
+            'created_at',
+          ],
+          include: [
+            {
+              model: Comment,
+              attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+              include: {
                 model: User,
                 attributes: ['username']
               }
-            ]
-          })
-          .then(dbPostData => {
-            // serialize data before passing to template
-            const posts = dbPostData.map(post => post.get({ plain: true }));
-            //res.render('dashboard', { posts, loggedIn: true });
-            res.redirect("/dashboard")
-          })
-          .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-          });
-        }
-      )}
-    }
+            },
+            {
+              model: User,
+              attributes: ['username']
+            }
+          ]
+        })
+        .then(dbPostData => {
+          // serialize data before passing to template
+          const posts = dbPostData.map(post => post.get({ plain: true }));
+          //res.render('dashboard', { posts, loggedIn: true });
+          res.redirect("/dashboard")
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+      })
   })
 })
 

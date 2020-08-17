@@ -81,12 +81,12 @@ router.get('/:id', (req, res) => {
 });
 
 //create a post
-router.post('/', withAuth, upload, (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Post.create({
       title: req.body.title,
       birthDate: req.body.birthDate,
       passingDate: req.body.passingDate,
-      avatar: `images/${req.file.filename}`,
+      avatar: `https://inmemoriamphotos.s3.us-west-2.amazonaws.com/${req.file.key}`,
       content: req.body.content,  
       user_id: req.session.user_id
     })
@@ -100,14 +100,15 @@ router.post('/', withAuth, upload, (req, res) => {
     });
 });
  
+//new route for avatar http://s3.amazonaws.com/bucketname/filename
 //update a post
-router.put('/:id', withAuth, upload, (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Post.update(
       {
         title: req.body.title,
         birthDate: req.body.birthDate,
         passingDate: req.body.passingDate,
-        avatar: `images/${req.file.filename}`,
+        avatar: `https://inmemoriamphotos.s3.us-west-2.amazonaws.com/${req.file.key}`,
         content: req.body.content,  
         user_id: req.session.user_id
       },
