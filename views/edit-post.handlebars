@@ -1,9 +1,8 @@
 <a class='back-button' href="/dashboard"> &larr; Back to dashboard</a>
 <article class='edit-box'>
-    <h2 id='section-head'>
-        Edit Post
-    </h2>
-    <form action="/dashboard/edit/{{post.id}}" class="edit-post-form" class="new-post-form" method="PUT" enctype="multipart/form-data">
+    <h2 id='section-head'>Edit Post</h2>
+
+    <form action="/dashboard/edit/{{post.id}}/" class="edit-post-form" method="POST" enctype="multipart/form-data">
         <div>
             <input name="title" type="text" value="{{post.title}}" />
         </div>
@@ -17,7 +16,7 @@
         </div>
         <div>
             <label for="image">Please Upload a Photo</label>
-            <input class='file-input' type="file" name="avatar" value="{{post.avatar}}" />
+            <input class='file-input' type="file" name="avatar"  accept="image/*"  value="{{post.avatar}}" />
         </div>
         <div>
             <textarea name="body" type="text" >{{post.content}}</textarea>
@@ -25,7 +24,7 @@
         <div>
             <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
         </div>
-        <button class=' save-btn btn' type="submit">Save Post</button>
+        <button class='save-btn btn' type="submit">Save Post</button>
         <button type="button" class="delete-post-btn btn">Delete Post</button>
     </form>
 </article>
