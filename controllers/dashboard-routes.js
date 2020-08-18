@@ -146,25 +146,30 @@ router.post('/', withAuth, (req, res) => {
   })
 })
 
-router.put('/edit/:id', withAuth, (req, res) => {
+//edit a post
+router.post('/edit/:id', withAuth, (req, res) => {
   upload(req, res, (err) => {
     if (err){
       res.status(500).json(err);
     } 
-    console.log("------------------------------------------------------------------------>",req.file);
+    if(!req.file){
       Post.update({
         title: req.body.title,
         birthDate: req.body.birthDate,
-        passingDate: req.body.pasingDate,
-        avatar: `https://inmemoriamphotos.s3.us-west-2.amazonaws.com/${req.file.key}`,
+        passingDate: req.body.passingDate,
         content: req.body.body,  
         user_id: req.session.user_id
+      },
+      {
+        where: {
+          id: req.params.id
+        }
       })
       .then(response => {
-        Post.findAll({
+        Post.findOne({
           where: {
-            // use the ID from the session
-            user_id: req.session.user_id
+            
+            id: req.params.id
           },
           attributes: [
             'id',
@@ -192,8 +197,7 @@ router.put('/edit/:id', withAuth, (req, res) => {
         })
         .then(dbPostData => {
           // serialize data before passing to template
-          const posts = dbPostData.map(post => post.get({ plain: true }));
-          //res.render('dashboard', { posts, loggedIn: true });
+          const post = dbPostData.get({ plain: true });
           res.redirect("/dashboard")
         })
         .catch(err => {
@@ -201,6 +205,61 @@ router.put('/edit/:id', withAuth, (req, res) => {
           res.status(500).json(err);
         });
       })
+    } else if (req.file){
+      Post.update({
+        title: req.body.title,
+        birthDate: req.body.birthDate,
+        passingDate: req.body.passingDate,
+        avatar: `https://inmemoriamphotos.s3.us-west-2.amazonaws.com/${req.file.key}`,
+        content: req.body.body,  
+        user_id: req.session.user_id
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(response => {
+        Post.findOne({
+          where: {
+            
+            id: req.params.id
+          },
+          attributes: [
+            'id',
+            'title',
+            'birthDate',
+            'passingDate',
+            'content',
+            'avatar',
+            'created_at',
+          ],
+          include: [
+            {
+              model: Comment,
+              attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+              include: {
+                model: User,
+                attributes: ['username']
+              }
+            },
+            {
+              model: User,
+              attributes: ['username']
+            }
+          ]
+        })
+        .then(dbPostData => {
+          // serialize data before passing to template
+          const post = dbPostData.get({ plain: true });
+          res.redirect("/dashboard")
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+      })
+    } 
   })
 })
 

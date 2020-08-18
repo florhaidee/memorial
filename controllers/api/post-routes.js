@@ -114,7 +114,7 @@ router.put('/:id', withAuth, (req, res) => {
       },
       {
         where: {
-          id: req.params.id
+          id: req.session.user_id
         }
       }
     )
