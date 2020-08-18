@@ -4,9 +4,11 @@
         <div class="commenter">
             {{user.username}} on {{format_date created_at}}
         </div>
-        {{!-- <div class="text"> --}}
+        <div contentEditable="true">
             {{comment_text}}
-        {{!-- </div> --}}
+        </div>
+        <button class="comment-save">Save Changes</button>
+
     </section>
     {{/each}}
 </div>
