@@ -137,7 +137,7 @@ router.post('/', withAuth,
                 // serialize data before passing to template
                 const posts = dbPostData.map(post => post.get({ plain: true }));
                 //res.render('dashboard', { posts, loggedIn: true });
-                res.redirect("/dashboard")
+                res.redirect("/dashboard",  { posts, loggedIn: req.session.loggedIn })
               })
               .catch(err => {
                 console.log(err);

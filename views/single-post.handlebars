@@ -11,9 +11,11 @@
         <button type="submit" class='btn' id="submitPost-btn">Submit</button>
     </div>
 </form>
+{{> edit-comments post.comments}}
+{{else}}
+{{> comments post.comments}}
 {{/if}}
 
-{{> comments post.comments}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
