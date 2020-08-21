@@ -15,7 +15,7 @@
             <nav>
                 <a id='home' class='btn' href="/">Home</a>
                 {{#if loggedIn}}
-                <a id='dashboard' class='btn' href="/dashboard">Dashboard</a>
+                <a id='dashboard' class='btn' href="/dashboard"> {{username}}'s Dashboard</a>
                 <button id="logout" class="btn">Logout</button>
                 {{else}}
                 <a class='btn col' href="/login">Login</a>
