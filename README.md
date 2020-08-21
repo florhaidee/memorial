@@ -5,7 +5,7 @@
 * [General info](#general-info)
 * [Installation](#installation)
 * [Functionality](#functionality)
-* [Contributors] (#contributors)
+* [Contributors](#contributors)
 * [Screenshots](#screenshots)
 * [Status](#status)
 * [Link](#link)
