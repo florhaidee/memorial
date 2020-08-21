@@ -1,0 +1,18 @@
+<div class="comments">
+    {{#each this}}
+        <form id="edit-comment-form" class="comment">
+            <div class="commenter">
+                {{user.username}} on {{format_date created_at}}
+            </div>
+            <div id="editable-comment" contentEditable="true">
+                {{comment_text}}
+            </div>
+            <input id="comment-id" type= "hidden" value="{{id}}"/>
+            <button type='submit' class="comment-save">Save Changes</button>
+
+        </form>
+    {{/each}}
+</div>
+
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/comment-edit.js"></script>

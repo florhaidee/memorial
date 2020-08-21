@@ -1,15 +1,15 @@
 <div class="comments">
     {{#each this}}
-    <section class="comment">
-        <div class="commenter">
-            {{user.username}} on {{format_date created_at}}
-        </div>
-        <div id="editable-comment" contentEditable="true">
-            {{comment_text}}
-        </div>
-        <button type='submit' class="comment-save">Save Changes</button>
-
-    </section>
+        {{#unless loggedIn}}
+            <section class="comment">
+                <div class="commenter">
+                    {{user.username}} on {{format_date created_at}}
+                </div>
+                <div id="editable-comment" contentEditable="false">
+                    {{comment_text}}
+                </div>
+            </section>
+        {{/unless}}
     {{/each}}
 </div>
 
