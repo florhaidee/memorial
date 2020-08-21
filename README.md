@@ -8,7 +8,7 @@
 * [Contributors](#contributors)
 * [Screenshots](#screenshots)
 * [Status](#status)
-* [Link](#link)
+* [Links](#links)
 * [License](#license)
 * [Contact](#contact)
 
@@ -31,8 +31,8 @@ You may also just view the working deployment at the heroku link in the Links se
 You will first land on the Home page. If you have yet to create a login, you can click "Log In" in the Navbar, then choose "Sign Up" to create a username, login email, and password. Once created you will be automatically be logged in and taken to your Dashboard. Here you will see the option to create a new post, and any posts you have created in the past will be listed on this page as well. After creating a post, you will see that post listed on the Homepage, which you are directed to after clicking "Home". From there, you are able to choose any of the posts that you can see to be taken to their page, which will have the content of the original post, along with the comments people have left. You are alos able to comment yourself from inside the post's page. If you would like to edit or delete your post, you can do so on your personal dashboard by clicking "Edit Post" underneath the post you wish to edit.
 
 ## Contributors
-Florhaidee Guerra
-John Nielsen
+- Florhaidee Guerra
+- John Nielsen
 
 ## Screenshots
 
