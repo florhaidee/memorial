@@ -115,6 +115,10 @@ nav {
     margin-bottom: .5rem;
 }
 
+.sm-display {
+    display: none;
+}
+
 .page-header {
     width: 100%;
     font-size: 10rem;
@@ -391,6 +395,14 @@ label {
 }
 
 @media screen and (max-width: 575px) {
+    .sm-display {
+        display: inline-block
+    }
+
+    .lg-display {
+        display: none;
+    }
+
     .page-header {
         font-size: 8rem;
     }
