@@ -1,17 +1,17 @@
 {{> single-post post}}
 
 {{#if loggedIn}}
-<form class="comment-form">
-    <div class='comment-header'>Other Memories</div>
-    <div>
-        <textarea name="comment-body" id="Comment-Body"></textarea>
-    </div>
+    <form class="comment-form">
+        <div class='comment-header'>Other Memories</div>
+        <div>
+            <textarea name="comment-body" id="Comment-Body"></textarea>
+        </div>
 
-    <div>
-        <button type="submit" class='btn' id="submitPost-btn">Submit</button>
-    </div>
-</form>
-{{> edit-comments post.comments}}
+        <div>
+            <button type="submit" class='btn' id="submitPost-btn">Submit</button>
+        </div>
+    </form>
+    {{> edit-comments post}}
 {{else}}
 {{> comments post.comments}}
 {{/if}}

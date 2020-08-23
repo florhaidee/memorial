@@ -83,7 +83,7 @@ router.get('/post/:id', (req, res) => {
         include: {
           model: User,
           attributes: ['username']
-        }
+        },
       },
       {
         model: User,
@@ -91,26 +91,35 @@ router.get('/post/:id', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
-      }
+  .then(dbPostData => {
+    if (!dbPostData) {
+      res.status(404).json({ message: 'No post found with this id' });
+      return;
+    }
 
-      // serialize the data
-      const post = dbPostData.get({ plain: true });
-
+    // serialize the data
+    const post = dbPostData.get({ plain: true });
+    if (req.session.loggedIn){
       // pass data to template
       res.render('single-post', {
         post,
         loggedIn: req.session.loggedIn,
-        username: req.session.username
+        username: req.session.username,
+        userId: req.session.user_id
       });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    } else{
+      console.log("loggedIn FALSE---------------------------------------------------")
+      res.render('single-post', {
+        post,
+        loggedIn: false
+      });
+    }
+
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;

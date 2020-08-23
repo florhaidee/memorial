@@ -6,6 +6,7 @@ const { Post, User, Comment } = require('../models');
 const { route } = require('./api');
 const { body, validationResult } = require('express-validator');
 
+//get all post
 router.get('/', withAuth, (req, res) => {
   Post.findAll({
     where: {
@@ -39,7 +40,7 @@ router.get('/', withAuth, (req, res) => {
     .then(dbPostData => {
       // serialize data before passing to template
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+      res.render('dashboard', { posts, loggedIn: true, username: req.session.username });
     })
     .catch(err => {
       console.log(err);
@@ -47,6 +48,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
+//get post by id
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
@@ -80,7 +82,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     .then(dbPostData => {
       // serialize data before passing to template
       const post = dbPostData.get({ plain: true });
-      res.render('edit-post', { post, loggedIn: true });
+      res.render('edit-post', { post, loggedIn: req.session.loggedIn, username: req.session.username });
     })
     .catch(err => {
       console.log(err);
@@ -88,6 +90,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
+//create post
 router.post('/', withAuth,
   (req, res) => {
     upload(req, res, (err) => {
@@ -137,14 +140,14 @@ router.post('/', withAuth,
                 // serialize data before passing to template
                 const posts = dbPostData.map(post => post.get({ plain: true }));
                 //res.render('dashboard', { posts, loggedIn: true });
-                res.redirect("/dashboard",  { posts, loggedIn: req.session.loggedIn })
+                res.render("dashboard",  { posts, loggedIn: req.session.loggedIn, username: req.session.username })
               })
               .catch(err => {
                 console.log(err);
                 res.status(500).json(err);
               });
           }
-          )
+        )
       }
     })
     // }
@@ -202,7 +205,7 @@ router.post('/edit/:id', withAuth, (req, res) => {
             .then(dbPostData => {
               // serialize data before passing to template
               const post = dbPostData.get({ plain: true });
-              res.redirect("/dashboard")
+              res.render("dashboard", { posts, loggedIn: req.session.loggedIn, username: req.session.username })
             })
             .catch(err => {
               console.log(err);
@@ -256,7 +259,7 @@ router.post('/edit/:id', withAuth, (req, res) => {
             .then(dbPostData => {
               // serialize data before passing to template
               const post = dbPostData.get({ plain: true });
-              res.redirect("/dashboard")
+              res.render('dashboard', { posts, loggedIn: req.session.loggedIn, username: req.session.username })
             })
             .catch(err => {
               console.log(err);
