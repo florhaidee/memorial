@@ -11,8 +11,8 @@
             <button type="submit" class='btn' id="submitPost-btn">Submit</button>
         </div>
     </form>
-    {{userId}}
-    {{> edit-comments post.comments}}
+    
+    {{> edit-comments post}}
 {{else}}
 {{> comments post.comments}}
 {{/if}}
