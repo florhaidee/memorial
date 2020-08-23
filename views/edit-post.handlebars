@@ -40,11 +40,14 @@
 </form>
 
 {{#if loggedIn}}
-{{> edit-comments post.comments}}
+    {{> edit-comments post}}
+{{else}}
+{{> comments post.comments}}
+{{/if}}
+
+{{#if loggedIn}}
 <script src="/javascript/delete-post.js"></script>
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/comment-edit.js"></script>
 <script src="/javascript/delete-comment.js"></script>
-{{else}}
-{{> comments post.comments}}
 {{/if}}

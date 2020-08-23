@@ -82,7 +82,25 @@ router.get('/edit/:id', withAuth, (req, res) => {
     .then(dbPostData => {
       // serialize data before passing to template
       const post = dbPostData.get({ plain: true });
-      res.render('edit-post', { post, loggedIn: req.session.loggedIn, username: req.session.username });
+      
+      if (req.session.loggedIn){
+        post.sessionUser= {
+          userId: req.session.user_id
+        }
+        console.log("post data----------------------------------------------------: ", post)
+        // pass data to template
+        res.render('edit-post', {
+          post,
+          loggedIn: req.session.loggedIn,
+          username: req.session.username,
+        });
+      } else if(!req.session.loggedIn){
+        console.log("loggedIn FALSE: post data----------------------------------------------------: ", post)
+        res.render('edit-post', {
+          post,
+          loggedIn: false
+        });
+      }
     })
     .catch(err => {
       console.log(err);
