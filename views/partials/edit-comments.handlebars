@@ -1,14 +1,22 @@
 <div class="comments">
-    {{#each this}}
+    {{#each this.comments}}
         <form id="edit-comment-form" class="comment">
             <div class="commenter">
                 {{user.username}} on {{format_date created_at}}
             </div>
-            <div id="editable-comment" contentEditable="true">
-                {{comment_text}}
-            </div>
+            {{#if (validate_user ../sessionUser.userId user_id)}}
+                <div id="editable-comment" contentEditable="true">
+                    {{comment_text}}
+                </div>
+                <button type='submit' class="comment-save">Save Changes</button> <button type='delete' class="comment-delete">Delete</button>
+            {{else}}
+                <div id="editable-comment" contentEditable="false">
+                    {{comment_text}}
+                </div>
+            {{/if}}
+
             <input id="comment-id" type= "hidden" value="{{id}}"/>
-            <button type='submit' class="comment-save">Save Changes</button> <button type='delete' class="comment-delete">Delete</button>
+            
         </form>
     {{/each}}
 </div>
