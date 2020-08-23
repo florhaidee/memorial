@@ -1,5 +1,5 @@
 <div class="comments">
-    {{#each this}}
+    {{#each this.comments}}
         <form id="edit-comment-form" class="comment">
             <div class="commenter">
                 {{user.username}} on {{format_date created_at}}
@@ -8,11 +8,10 @@
                 {{comment_text}}
             </div>
             <input id="comment-id" type= "hidden" value="{{id}}"/>
-            <button type='submit' class="comment-save">Save Changes</button>
-
+            <button type='submit' class="comment-save">Save Changes</button> <button type='delete' class="comment-delete">Delete</button>
         </form>
     {{/each}}
 </div>
 
-<script src="/javascript/comment.js"></script>
 <script src="/javascript/comment-edit.js"></script>
+<script src="/javascript/delete-comment.js"></script>
