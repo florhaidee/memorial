@@ -75,6 +75,7 @@ router.get('/post/:id', (req, res) => {
       'content',
       'avatar',
       'created_at',
+      'user_id'
     ],
     include: [
       {
@@ -96,19 +97,22 @@ router.get('/post/:id', (req, res) => {
       res.status(404).json({ message: 'No post found with this id' });
       return;
     }
-
     // serialize the data
-    const post = dbPostData.get({ plain: true });
+    let post = dbPostData.get({ plain: true });
+
     if (req.session.loggedIn){
+      post.sessionUser= {
+        userId: req.session.user_id
+      }
+      console.log("post data----------------------------------------------------: ", post)
       // pass data to template
       res.render('single-post', {
         post,
         loggedIn: req.session.loggedIn,
         username: req.session.username,
-        userId: req.session.user_id
       });
-    } else{
-      console.log("loggedIn FALSE---------------------------------------------------")
+    } else if(!req.session.loggedIn){
+      console.log("loggedIn FALSE: post data----------------------------------------------------: ", post)
       res.render('single-post', {
         post,
         loggedIn: false
