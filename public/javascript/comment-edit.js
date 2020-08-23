@@ -1,14 +1,3 @@
-// function displaySave() {
-//     const saveButton = document.querySelector('.comment-save');
-//     const editable = document.getElementById('editabkle-comment');
-
-//     if (editable === 'active') {
-//         saveButton.getElementsByClassName.display = 'block';
-//     } else {
-//         saveButton.getElementsByClassName.display = 'none'
-//     }
-// };
-
 async function editCommentHandler(event) {
     event.preventDefault();
 
