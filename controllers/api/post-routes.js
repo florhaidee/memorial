@@ -2,10 +2,9 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { Post, User, Comment } = require("../../models");
-
+const upload = require('../../utils/upload');
 // get all posts
 router.get('/', (req, res) => {
-    console.log('======================');
     Post.findAll({
       attributes: [
         'id',
@@ -82,30 +81,33 @@ router.get('/:id', (req, res) => {
 });
 
 //create a post
-router.post('/', withAuth, (req, res) => {
+router.post('/', withAuth, upload, (req, res) => {
     Post.create({
       title: req.body.title,
       birthDate: req.body.birthDate,
       passingDate: req.body.passingDate,
-      avatar: req.body.avatar,
+      avatar: `images/${req.file.filename}`,
       content: req.body.content,  
       user_id: req.session.user_id
     })
-      .then(dbPostData => res.json(dbPostData))
+      .then(dbPostData => {
+
+        res.json(dbPostData)
+      })
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
  
-//update a post title
-router.put('/:id', withAuth, (req, res) => {
+//update a post
+router.put('/:id', withAuth, upload, (req, res) => {
     Post.update(
       {
         title: req.body.title,
         birthDate: req.body.birthDate,
         passingDate: req.body.passingDate,
-        avatar: req.body.avatar,
+        avatar: `images/${req.file.filename}`,
         content: req.body.content,  
         user_id: req.session.user_id
       },
