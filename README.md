@@ -35,7 +35,10 @@ You will first land on the Home page. If you have yet to create a login, you can
 - John Nielsen
 
 ## Screenshots
-
+![Memorial Home](public/images/memorial-home.png)
+![Memorial Dashboard](public/images/memorial-dashboard.png)
+![Memorial Post](public/images/memorial-post.png)
+![Memorial Comment](public/images/memorial-comment.png)
 
 ## Status
 Project is: _in-progess_ (for now)
