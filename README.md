@@ -1,4 +1,4 @@
-# In Memoriam
+# In Memoriam ![badge](https://img.shields.io/badge/license-MIT-blue) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 >A program that allows users to openly post and comment about loved ones that have passed away.
 
 ## Table of contents
@@ -41,8 +41,8 @@ You will first land on the Home page. If you have yet to create a login, you can
 Project is: _in-progess_ (for now)
 
 ## Links
-Respository Link - 
-Deployed on Heroku - 
+Respository Link - https://github.com/florhaidee/memorial/
+Deployed on Heroku - https://alwaysremember.herokuapp.com/
 
 
 ## License
@@ -55,3 +55,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Contact
 
 Created by John Hayes Nielsen - johnhayesnielsen@gmail.com
+           Florhaidee Guerra - florhaideedev@gmail.com
