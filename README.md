@@ -42,6 +42,7 @@ Project is: _in-progess_ (for now)
 
 ## Links
 Respository Link - https://github.com/florhaidee/memorial/
+
 Deployed on Heroku - https://alwaysremember.herokuapp.com/
 
 
@@ -55,4 +56,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Contact
 
 Created by John Hayes Nielsen - johnhayesnielsen@gmail.com
+
            Florhaidee Guerra - florhaideedev@gmail.com
