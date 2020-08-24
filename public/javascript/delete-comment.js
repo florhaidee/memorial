@@ -1,27 +1,18 @@
-async function deleteFormHandler(event) {
+let form = document.getElementById("edit-comment-form")
+
+async function deleteFormHandler(event, id) {
     event.preventDefault();
-
-    const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-    const id = document.querySelector('#comment-id').value;
-
+    
     const response = await fetch(`/api/comments/${id}`, {
         method: 'DELETE',
-        body: JSON.stringify({
-          id: id
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+    });   
 
     if (response.ok) {
-        document.location.replace(`/post/${post_id}`);
+        console.log(event)
+        document.location.reload();
     } else {
         alert(response.statusText);
+        console.log("error deleting", response)
     };
 
 };
-
-document.querySelector('.comment-delete').addEventListener('click', deleteFormHandler);

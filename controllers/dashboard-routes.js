@@ -223,7 +223,8 @@ router.post('/edit/:id', withAuth, (req, res) => {
             .then(dbPostData => {
               // serialize data before passing to template
               const post = dbPostData.get({ plain: true });
-              res.render("dashboard", { posts, loggedIn: req.session.loggedIn, username: req.session.username })
+              //res.render("edit-post", { post, loggedIn: req.session.loggedIn, username: req.session.username })
+              res.redirect("/dashboard")
             })
             .catch(err => {
               console.log(err);
@@ -277,7 +278,8 @@ router.post('/edit/:id', withAuth, (req, res) => {
             .then(dbPostData => {
               // serialize data before passing to template
               const post = dbPostData.get({ plain: true });
-              res.render('dashboard', { posts, loggedIn: req.session.loggedIn, username: req.session.username })
+              res.redirect("/dashboard")
+              //res.render('edit-post', { post, loggedIn: req.session.loggedIn, username: req.session.username })
             })
             .catch(err => {
               console.log(err);

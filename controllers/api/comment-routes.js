@@ -6,7 +6,7 @@ const { response } = require('express');
 router.get('/', (req, res) => {
   console.log('======================');
   Comment.findAll({
-    order: [['created_at', 'DESC']],
+    order: [['created_at', 'ASC']],
   })
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
@@ -47,7 +47,6 @@ router.put('/:id', withAuth, (req, res) => {
     Comment.update(
       {
         comment_text: req.body.comment_text,
-        post_id: req.body.post_id,
       },
       {
         where: {
@@ -74,17 +73,20 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
+  console.log('COMMENT TO DELETE: //////////////////////////////////////////////', req.params.id)
   Comment.destroy({
     where: {
       id: req.params.id
     }
   })
     .then(dbCommentData => {
+      console.log("DELETE COMMENTE---------------------------------------------------",dbCommentData)
       if (!dbCommentData) {
         res.status(404).json({ message: 'No Comment found with this id' });
         return;
       }
       res.json(dbCommentData);
+
     })
     .catch(err => {
       console.log(err);
