@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 //homepage route
 router.get('/', (req, res) => {
@@ -36,7 +37,8 @@ router.get('/', (req, res) => {
         // pass a single post object into the homepage template
         res.render('homepage', {
           posts,
-          loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn,
+          username: req.session.username,
         });
     })
     .catch(err => {
@@ -74,6 +76,7 @@ router.get('/post/:id', (req, res) => {
       'content',
       'avatar',
       'created_at',
+      'user_id'
     ],
     include: [
       {
@@ -82,7 +85,7 @@ router.get('/post/:id', (req, res) => {
         include: {
           model: User,
           attributes: ['username']
-        }
+        },
       },
       {
         model: User,
@@ -90,25 +93,38 @@ router.get('/post/:id', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
-        return;
+  .then(dbPostData => {
+    if (!dbPostData) {
+      res.status(404).json({ message: 'No post found with this id' });
+      return;
+    }
+    // serialize the data
+    let post = dbPostData.get({ plain: true });
+
+    if (req.session.loggedIn){
+      post.sessionUser= {
+        userId: req.session.user_id
       }
-
-      // serialize the data
-      const post = dbPostData.get({ plain: true });
-
+      console.log("post data----------------------------------------------------: ", post)
       // pass data to template
       res.render('single-post', {
         post,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        username: req.session.username,
       });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    } else if(!req.session.loggedIn){
+      console.log("loggedIn FALSE: post data----------------------------------------------------: ", post)
+      res.render('single-post', {
+        post,
+        loggedIn: false
+      });
+    }
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
+
 
 module.exports = router;

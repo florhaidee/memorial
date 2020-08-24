@@ -4,25 +4,26 @@
     <form action="/dashboard/" class="new-post-form" method="POST" enctype="multipart/form-data">
         <div>
             <label for="title">Name</label>
-            <input type="text" id="title" name="title" />
+            <input type="text" id="title" name="title" onBlur='requiredField(this)'/>
         </div>
         <div>
             <label for="birthDate">Birth Date</label>
-            <input type="date" id="birthDate" name="birthDate" />
+            <input type="date" id="birthDate" name="birthDate" onBlur='requiredField(this)'/>
         </div>
         <div>
-            <label for="pasingDate">Date of Passing</label>
-            <input type="date" id="pasingDate" name="pasingDate" />
+            <label for="passingDate">Date of Passing</label>
+            <input type="date" id="passingDate" name="passingDate" onBlur='requiredField(this)'/>
         </div>
         <div> 
             <label for="image">Please Upload a Photo</label>
-            <input class='file-input' type="file" name="avatar" accept="image/*" value="../public/images/default_image.png"/>
+            <input id='photo' class='file-input' type="file" name="avatar" accept="image/*" value="../public/images/default_image.png" onBlur='requiredField(this)'/>
         </div>
         <div>
             <label for="body">What would you like to say about them?</label>
-            <textarea id="body" name="body"></textarea>
+            <textarea id="body" name="body" onBlur='requiredField(this)'></textarea>
         </div>
-        <button type="submit" class="btn" onClick="window.location.reload(true)" >Create</button>
+        <p class ='bg-info'>** Before clicking create, please verify that each field has been filled in by clicking on any empty space on the page. **</p>
+        <button type="submit" class="btn" onClick="window.location.reload(true)" id='create-button' disabled='true'>Create</button>
     </form>
 </section>
 
@@ -40,4 +41,4 @@
 </section>
 {{/if}}
 
-{{!-- <script src="/javascript/add-post.js"></script> --}}
+<script src="/javascript/add-post.js"></script>

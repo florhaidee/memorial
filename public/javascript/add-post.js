@@ -1,35 +1,29 @@
-async function newFormHandler(event) {
-    event.preventDefault();
+let createButton = document.getElementById('create-button')
 
-    // const avatar = document.querySelector('input[name="avatar"]').value;
-    // const title = document.querySelector('input[name="post-title"]').value;
-    // const birthDate = document.querySelector('input[name="birth-date"]').value;
-    // const passingDate = document.querySelector('input[name="passing-date"]').value;
-    // const content = document.querySelector('textarea[name="post-body"]').value;
-
-    // const response = await fetch(`/api/posts`, 
-    //     {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         avatar,
-    //         title,
-    //         birthDate,
-    //         passingDate,
-    //         content
-    //     }),
-    //     file: event.target.file,
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    // });
-    // console.log()
-    // if (response.ok) {
-    //     document.location.replace('/dashboard');
-    // } else {
-    //     alert(response.statusText);
-    // }
-
-    document.location.replace('/dashboard');
+function requiredField(input) {
+    if (input.value.length < 1) {
+        //red border
+        input.style.borderColor = "#e74c3c";
+    } else {
+        input.style.borderColor = '#8FC1E3'
+    }
+    evaluateFormReadiness()
 }
 
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+function evaluateFormReadiness() {
+    if (!document.getElementById('title').value) {
+        createButton.disabled = true;
+    } else if (!document.getElementById('birthDate').value) {
+        createButton.disabled = true;
+    } else if (!document.getElementById('passingDate').value) {
+        createButton.disabled = true;
+    } else if (!document.getElementById('photo').value) {
+        createButton.disabled = true;
+    } else if (!document.getElementById('body').value) {
+        createButton.disabled = true;
+    } else {
+        //other checks
+        document.getElementById('create-button').disabled = false;
+    }
+}
+

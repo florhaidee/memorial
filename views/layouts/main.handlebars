@@ -15,7 +15,8 @@
             <nav>
                 <a id='home' class='btn' href="/">Home</a>
                 {{#if loggedIn}}
-                <a id='dashboard' class='btn' href="/dashboard">Dashboard</a>
+                <a id='dashboard' class='btn lg-display' href="/dashboard"> {{username}}'s Dashboard</a>
+                <a id='dashboard' class='btn sm-display' href="/dashboard">Dashboard</a>
                 <button id="logout" class="btn">Logout</button>
                 {{else}}
                 <a class='btn col' href="/login">Login</a>
@@ -41,6 +42,7 @@
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}
+     
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.734.0.min.js"></script>
 </body>
 
