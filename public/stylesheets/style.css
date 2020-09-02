@@ -20,8 +20,9 @@ title {
 
 body,
 html {
-    background-image: url('../images/pink-background.jpg');
-    background-size: 66%;
+    /* background-image: url('../images/shaded-pink.jpg'); */
+    background-color: #e0a7a7;
+    /* background-color: #ff9999; */
     background-position: fixed;
     background-attachment: fixed;
     padding: 0;
